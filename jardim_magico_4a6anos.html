@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardim Mágico das Plantas — 4 a 6 anos</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#1a4d2e;min-height:100vh;padding:16px}
+.wrap{max-width:900px;margin:0 auto}
+
+.hero{background:#2d8c4e;border-radius:20px;padding:20px 24px 16px;text-align:center;margin-bottom:16px}
+.hero-em{font-size:2rem;letter-spacing:6px;display:block;margin-bottom:8px}
+.hero h1{font-family:'Baloo 2',cursive;color:#fff;font-size:2rem;font-weight:800;margin:0 0 4px;line-height:1.1}
+.hero h1 span{color:#ffd166}
+.hero p{color:rgba(255,255,255,.85);font-size:.95rem}
+
+.tabs{display:flex;gap:10px;margin-bottom:16px}
+.tb{flex:1;background:rgba(255,255,255,.15);border:2.5px solid rgba(255,255,255,.3);border-radius:50px;padding:12px 10px;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;cursor:pointer;color:rgba(255,255,255,.8);transition:all .2s;text-align:center}
+.tb:hover{background:rgba(255,255,255,.25)}
+.tb.on{background:#fff;color:#1a4d2e;border-color:#fff}
+
+.sec{display:none}.sec.on{display:block}
+
+.intro-p{color:rgba(255,255,255,.7);font-size:.9rem;text-align:center;margin-bottom:14px;font-weight:700}
+
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+
+.card{background:#fff;border-radius:18px;padding:14px 12px 12px;cursor:pointer;transition:all .25s;text-align:center;border:3px solid transparent}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.card.sel{border-color:#ffd166;box-shadow:0 0 0 4px rgba(255,209,102,.3)}
+.card.panc{border-bottom:4px solid #f07030}
+
+.card-foto{width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 10px;display:block;background:#e8f5e9;border:3px solid #a7f3d0}
+.card.panc .card-foto{border-color:#fdba74}
+.card-em-fallback{width:80px;height:80px;border-radius:50%;background:#e8f5e9;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;border:3px solid #a7f3d0}
+.card.panc .card-em-fallback{background:#fff7f3;border-color:#fdba74}
+
+.card-nm{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;margin:0 0 5px;color:#1a5c36;line-height:1.15}
+.card.panc .card-nm{color:#c2410c}
+.card-ds{font-size:.75rem;line-height:1.4;color:#4b5563;font-weight:700}
+.card-tag{display:inline-block;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:8px;margin-top:5px}
+.tg-m{background:#d1fae5;color:#065f46}
+.tg-p{background:#ffedd5;color:#9a3412}
+.tg-a{background:#dbeafe;color:#1e40af}
+
+.det{background:#fff;border-radius:20px;padding:20px;animation:fi .3s ease;margin-top:4px}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.det-top{display:flex;align-items:center;gap:18px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid #f0f4f0}
+.det-foto{width:110px;height:110px;border-radius:50%;object-fit:cover;flex-shrink:0;border:4px solid #a7f3d0;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.det.panc .det-foto{border-color:#fdba74;background:#fff7f3}
+.det-nm{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:800;color:#1a5c36;margin:0 0 4px}
+.det.panc .det-nm{color:#c2410c}
+.det-sub{font-size:.85rem;color:#6b7280;font-weight:700}
+.det-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.det-box{border-radius:12px;padding:12px 14px}
+.det-box.v{background:#f0faf4;border-left:4px solid #4ade80}
+.det-box.y{background:#fffbea;border-left:4px solid #fbbf24}
+.det-box.b{background:#eff6ff;border-left:4px solid #60a5fa}
+.det-box.o{background:#fff7f3;border-left:4px solid #fb923c}
+.det-bl{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;color:#374151}
+.det-vl{font-size:.92rem;color:#111827;line-height:1.45;margin:0;font-weight:700}
+.fun{background:#fefce8;border:2px solid #fef08a;border-radius:12px;padding:12px 15px;font-size:.88rem;color:#713f12;line-height:1.5;font-weight:700}
+.fun strong{color:#92400e}
+
+.quiz-lbl{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:12px;padding:10px 16px;font-size:.9rem;font-weight:800;color:#fff;text-align:center;margin-bottom:14px}
+.qp{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px}
+.pb{flex:1;height:12px;background:rgba(255,255,255,.2);border-radius:8px;overflow:hidden}
+.pf{height:100%;background:#ffd166;border-radius:8px;transition:width .4s}
+.sc{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:800;color:#ffd166}
+.qcard{background:#fff;border-radius:20px;padding:24px}
+.qem{font-size:3.5rem;display:block;text-align:center;margin-bottom:8px}
+.qpq{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;color:#1a4d2e;margin-bottom:16px;text-align:center;line-height:1.3}
+.qo{display:flex;flex-direction:column;gap:10px}
+.qb{background:#f0fdf4;border:2.5px solid #a7f3d0;border-radius:14px;padding:14px 18px;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;cursor:pointer;text-align:center;color:#1a4d2e;transition:all .2s}
+.qb:hover{background:#dcfce7;border-color:#4ade80;transform:scale(1.02)}
+.qb.ok{background:#dcfce7;border-color:#16a34a;color:#14532d}
+.qb.no{background:#fee2e2;border-color:#ef4444;color:#7f1d1d}
+.qr{margin-top:14px;padding:14px;border-radius:14px;font-family:'Baloo 2',cursive;font-weight:800;text-align:center;font-size:1.15rem;display:none;line-height:1.4}
+.qr.show{display:block}
+.qr.ok{background:#dcfce7;color:#14532d}
+.qr.no{background:#fee2e2;color:#7f1d1d}
+.nb{margin-top:12px;background:#ffd166;color:#1a4d2e;border:none;border-radius:50px;padding:14px;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.1rem;cursor:pointer;display:none;width:100%}
+.nb.show{display:block}
+.nb:hover{background:#f59e0b}
+.fim{text-align:center;padding:24px 16px}
+.fim-em{font-size:4rem;display:block;margin-bottom:8px}
+.fim-nm{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:#1a4d2e;margin:0 0 8px}
+.fim-ds{font-size:1rem;color:#4b5563;margin-bottom:20px;font-weight:700}
+.nb2{background:#ffd166;color:#1a4d2e;border:none;border-radius:50px;padding:14px 32px;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.1rem;cursor:pointer}
+
+.loading-foto{width:80px;height:80px;border-radius:50%;background:linear-gradient(90deg,#e8f5e9 25%,#d1fae5 50%,#e8f5e9 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;margin:0 auto 10px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <span class="hero-em">🌿 🌸 🌵 🌼 🍃</span>
+    <h1>O Jardim <span>Mágico</span> das Plantas!</h1>
+    <p>Toque nas plantinhas e descubra seus segredos! 🌍</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tb on" onclick="showTab('plantas',this)">🌿 As Plantinhas</button>
+    <button class="tb" onclick="showTab('quiz',this)">🎯 Vamos Brincar!</button>
+  </div>
+
+  <div id="tab-plantas" class="sec on">
+    <p class="intro-p">Toque em uma plantinha para saber mais!</p>
+    <div class="grade" id="GD"></div>
+    <div id="DB"></div>
+  </div>
+
+  <div id="tab-quiz" class="sec">
+    <div class="quiz-lbl">🗣️ A professora vai ler a pergunta em voz alta! Toque na resposta certa.</div>
+    <div class="qp">
+      <span style="font-size:.85rem;color:rgba(255,255,255,.7);font-weight:700" id="qN">Pergunta 1 de 8</span>
+      <div class="pb"><div class="pf" id="pF" style="width:12.5%"></div></div>
+      <span class="sc" id="qS">⭐ 0</span>
+    </div>
+    <div id="qBox"></div>
+  </div>
+</div>
+
+<script>
+const PL=[
+  {n:'Hortelã',e:'🍃',c:'med',wiki:'Mentha_spicata',ds:'Cheirinho fresquinho! Ajuda a barriguinha.',como:'Chá das folhinhas com água quente.',onde:'Vaso em casa ou horta.',fun:'O cheiro da hortelã está na pasta de dente, nos balinhos e nos remédios de barriga! Você já sentiu esse cheirinho hoje?'},
+  {n:'Camomila',e:'🌼',c:'med',wiki:'Matricaria_chamomilla',ds:'A florzinha do sono! Seu chazinho acalma.',como:'Chá das florzinhas secas.',onde:'Horta ou jardim.',fun:'A camomila tem uma substânciamágica que diz pro cérebro: hora de relaxar e dormir! Ela é uma das ervas mais estudadas pelos cientistas.'},
+  {n:'Alecrim',e:'🌿',c:'med',wiki:'Salvia_rosmarinus',ds:'Perfume forte e especial! Ajuda a lembrar das coisas.',como:'Chá ou tempero em carnes.',onde:'Vaso com muito sol.',fun:'Na Grécia Antiga, as crianças usavam coroas de alecrim na cabeça antes das provas para lembrar melhor. E funciona mesmo!'},
+  {n:'Erva-doce',e:'🌾',c:'med',wiki:'Foeniculum_vulgare',ds:'Cheira e tem gosto docinho! Ajuda a barriga.',como:'Chá das sementinhas.',onde:'Horta com bastante sol.',fun:'Muitos balinhos de anis têm o sabor da erva-doce! Provavelmente você já provou esse gosto e nem sabia que vinha de uma planta.'},
+  {n:'Erva-cidreira',e:'🌱',c:'med',wiki:'Lippia_alba',ds:'Cheira limão mas não é limão! Acalma e ajuda a dormir.',como:'Chá das folhinhas.',onde:'Quintal ou jardim.',fun:'O cheirinho de limão vem de um óleo escondido nas folhinhas. Esfregue uma folha entre os dedos e cheire — que maravilha!'},
+  {n:'Boldo',e:'🌿',c:'med',wiki:'Plectranthus_barbatus',ds:'Ajuda quando a barriga fica pesada depois de comer demais!',como:'Chá de 3 ou 4 folhinhas.',onde:'Quintal e jardim.',fun:'O boldo que temos no Brasil veio da África! Mas ficou tão popular aqui que todo mundo acha que é planta brasileira.'},
+  {n:'Manjericão',e:'🌿',c:'amb',wiki:'Ocimum_basilicum',ds:'A plantinha da pizza! Perfume especial e muito gostosa.',como:'Folha fresca em saladas e pizzas.',onde:'Vasinho na janela com sol.',fun:'O manjericão é a planta de tempero mais cultivada no mundo todo! Provavelmente tem uma pizzaria perto da sua casa que usa ela.'},
+  {n:'Gengibre',e:'🫚',c:'amb',wiki:'Zingiber_officinale',ds:'Uma raiz quentinha e apimentada! Ajuda quando gripados.',como:'Chá com mel e limão.',onde:'Vasinho em meia-sombra.',fun:'O gengibre que sobra na cozinha pode ser plantado! É só colocar o pedacinho na terra úmida e esperar crescer. Mágica!'},
+  {n:'Capuchinha',e:'🌸',c:'panc',wiki:'Tropaeolum_majus',ds:'A florzinha laranjinha que dá pra COMER! Rica em vitamina C.',como:'Flor fresca em saladas.',onde:'Jardins ornamentais.',fun:'Essa flor bonita que muita gente planta no jardim dá pra comer! Tem um saborzinho levemente apimentado. Que surpresa para o jantar!'},
+  {n:'Ora-pro-nóbis',e:'🌵',c:'panc',wiki:'Pereskia_aculeata',ds:'Um CACTO com folhas gostosas! Cheinho de proteína e força.',como:'Folhinhas refogadas com alho.',onde:'Cercas e muros.',fun:'A ora-pro-nóbis tem tanta proteína quanto a carne! E cresce em cercas sem ninguém precisar cuidar. Um superpoder escondido nas cercas!'},
+];
+
+const TT={med:'🏥 Medicinal',panc:'🥗 PANC',amb:'🍽️ Culinária'};
+const TC={med:'tg-m',panc:'tg-p',amb:'tg-a'};
+let SI=-1,CQ=0,SC=0,ANS=false;
+const fotos = {
+  "Mentha_spicata": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Mentha_spicata_leaves.jpg",
+  "Salvia_rosmarinus": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Rosmarinus_officinalis_%28Rosmarin%29.JPG",
+  "Foeniculum_vulgare": "https://upload.wikimedia.org/wikipedia/commons/2/21/Foeniculum_vulgare_Arnold_Arboretum_2_edit.jpg",
+  "Plectranthus_barbatus": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Boldo_leaves.jpg",
+  "Ocimum_basilicum": "https://upload.wikimedia.org/wikipedia/commons/4/48/Basil-Basilico-Ocimum_basilicum-albahaca.jpg",
+  "Zingiber_officinale": "https://upload.wikimedia.org/wikipedia/commons/9/93/Ginger_in_Hong_Kong.jpg"
+};
+
+async function loadFoto(wiki){
+  try{
+    const r=await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${wiki}&prop=pageimages&format=json&pithumbsize=300&origin=*`);
+    const d=await r.json();
+    const p=Object.values(d.query.pages)[0];
+    if(p?.thumbnail?.source) fotos[wiki]=p.thumbnail.source;
+  }catch(e){}
+}
+
+async function loadAll(){
+  await Promise.all(PL.map(p=>loadFoto(p.wiki)));
+  renderG();
+  if(SI>=0) renderDet(SI);
+}
+
+function fotoEl(p,size,cls){
+  if(fotos[p.wiki]) return `<img src="${fotos[p.wiki]}" class="${cls}" alt="${p.n}" style="width:${size}px;height:${size}px;border-radius:50%;object-fit:cover;${size===110?'flex-shrink:0;':''}border:${size===110?'4':'3'}px solid ${p.c==='panc'?'#fdba74':'#a7f3d0'};background:${p.c==='panc'?'#fff7f3':'#e8f5e9'}">`;
+  return `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${p.c==='panc'?'#fff7f3':'#e8f5e9'};border:${size===110?'4':'3'}px solid ${p.c==='panc'?'#fdba74':'#a7f3d0'};display:flex;align-items:center;justify-content:center;font-size:${size===110?'3':'2.2'}rem;${size===110?'flex-shrink:0;':''}">${p.e}</div>`;
+}
+
+function showTab(t,b){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));
+  document.getElementById('tab-'+t).classList.add('on');
+  b.classList.add('on');
+}
+
+function renderG(){
+  document.getElementById('GD').innerHTML=PL.map((p,i)=>`
+    <div class="card${p.c==='panc'?' panc':''}${SI===i?' sel':''}" onclick="selP(${i})">
+      ${fotoEl(p,80,'card-foto')}
+      <p class="card-nm">${p.n}</p>
+      <p class="card-ds">${p.ds}</p>
+      <span class="card-tag ${TC[p.c]}">${TT[p.c]}</span>
+    </div>`).join('');
+}
+
+function renderDet(i){
+  const p=PL[i];
+  document.getElementById('DB').innerHTML=`
+    <div class="det${p.c==='panc'?' panc':''}">
+      <div class="det-top">
+        ${fotoEl(p,110,'det-foto')}
+        <div>
+          <p class="det-nm">${p.n}</p>
+          <p class="det-sub">${TT[p.c]}</p>
+        </div>
+      </div>
+      <div class="det-grid">
+        <div class="det-box v"><p class="det-bl">Para que serve</p><p class="det-vl">${p.ds}</p></div>
+        <div class="det-box y"><p class="det-bl">Como usar</p><p class="det-vl">${p.como}</p></div>
+        <div class="det-box b"><p class="det-bl">Onde encontrar</p><p class="det-vl">${p.onde}</p></div>
+        <div class="det-box o"><p class="det-bl">Tipo</p><p class="det-vl">${p.c==='panc'?'Planta que se come! 🥗':p.c==='amb'?'Comida e remédio! ⭐':'Faz bem à saúde! 🏥'}</p></div>
+      </div>
+      <div class="fun"><strong>💡 Você sabia?</strong> ${p.fun}</div>
+    </div>`;
+  document.getElementById('DB').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function selP(i){SI=i;renderG();renderDet(i);}
+
+const QZ=[
+  {e:'🌼',q:'Qual plantinha tem a florzinha amarelinha bonitinha?',o:['Camomila','Alecrim','Boldo'],c:0,ok:'🎉 Muito bem! A camomilinha tem florzinhas amarelas lindas!',no:'Era a camomila! A florzinha amarelinha delicada.'},
+  {e:'😴',q:'Qual chazinho ajuda a gente a dormir melhor?',o:['Hortelã','Camomila','Gengibre'],c:1,ok:'🌟 Isso mesmo! O chá de camomila ajuda a relaxar e dormir!',no:'Era a camomila! Ela ajuda o cérebro a dizer: hora de dormir!'},
+  {e:'🌸',q:'A florzinha laranjinha da capuchinha dá pra comer?',o:['Sim, dá! 🎉','Não dá! 🚫'],c:0,ok:'🏆 Sim! A florzinha laranjinha é comestível e deliciosa!',no:'Surpresa! A capuchinha dá sim para comer — é uma PANC!'},
+  {e:'🌵',q:'Qual planta parece um cacto mas tem folhas gostosas?',o:['Ora-pro-nóbis','Alecrim','Boldo'],c:0,ok:'⭐ Arrasou! A ora-pro-nóbis é um cacto com folhas comestíveis!',no:'Era a ora-pro-nóbis! Um cacto com folhas cheias de proteína.'},
+  {e:'🍭',q:'Qual plantinha cheira igual a um balinho de anis?',o:['Hortelã','Camomila','Erva-doce'],c:2,ok:'🎊 Perfeito! A erva-doce tem aquele cheiro docinho de balinho!',no:'É a erva-doce! Ela tem aquele cheirinho docinho de balinho.'},
+  {e:'🍕',q:'Qual planta vai na pizza e tem um perfume especial?',o:['Boldo','Manjericão','Cavalinha'],c:1,ok:'🌟 Isso! O manjericão é a plantinha da pizza!',no:'É o manjericão! A plantinha de cheiro especial que vai na pizza.'},
+  {e:'🫚',q:'O gengibre é uma flor, uma folha ou uma raiz?',o:['Flor 🌸','Folha 🍃','Raiz 🫚'],c:2,ok:'🎉 Muito bem! O gengibre cresce embaixo da terra — é uma raiz!',no:'É uma raiz! O gengibre cresce escondidinho embaixo da terra.'},
+  {e:'🧠',q:'Na Grécia Antiga, qual planta as crianças usavam na cabeça antes das provas?',o:['Hortelã','Alecrim','Camomila'],c:1,ok:'🏅 Incrível! Coroa de alecrim na cabeça para lembrar melhor!',no:'Era o alecrim! As crianças gregas usavam coroas dele para as provas.'},
+];
+
+function renderQ(){
+  if(CQ>=QZ.length){
+    const pc=Math.round((SC/QZ.length)*100);
+    const em=pc>=80?'🏆':pc>=50?'🌟':'🌱';
+    document.getElementById('qBox').innerHTML=`<div class="fim"><span class="fim-em">${em}</span><p class="fim-nm">Você acertou ${SC} de ${QZ.length}!</p><p class="fim-ds">${pc>=80?'Você é um expert das plantinhas!':pc>=50?'Muito bem! Continue descobrindo!':'Continue explorando o jardim mágico!'}</p><button class="nb2" onclick="resetQ()">🔄 Jogar de novo!</button></div>`;
+    return;
+  }
+  const q=QZ[CQ];
+  document.getElementById('qN').textContent=`Pergunta ${CQ+1} de ${QZ.length}`;
+  document.getElementById('pF').style.width=Math.round(((CQ+1)/QZ.length)*100)+'%';
+  document.getElementById('qS').textContent=`⭐ ${SC}`;
+  document.getElementById('qBox').innerHTML=`<div class="qcard"><span class="qem">${q.e}</span><p class="qpq">${q.q}</p><div class="qo">${q.o.map((o,i)=>`<button class="qb" onclick="ans(${i})" id="op${i}">${o}</button>`).join('')}</div><div class="qr" id="qR"></div><button class="nb" id="nB" onclick="nextQ()">Próxima pergunta ➤</button></div>`;
+  ANS=false;
+}
+
+function ans(idx){
+  if(ANS)return;ANS=true;
+  const q=QZ[CQ];
+  document.querySelectorAll('.qb').forEach((b,i)=>{b.style.pointerEvents='none';if(i===q.c)b.classList.add('ok');});
+  const r=document.getElementById('qR'),nb=document.getElementById('nB');
+  if(idx===q.c){SC++;r.className='qr show ok';r.textContent=q.ok;}
+  else{document.getElementById('op'+idx).classList.add('no');r.className='qr show no';r.textContent=q.no;}
+  nb.classList.add('show');
+}
+function nextQ(){CQ++;renderQ();}
+function resetQ(){CQ=0;SC=0;renderQ();}
+
+renderG();
+renderQ();
+loadAll();
+</script>
+</body>
+</html>
